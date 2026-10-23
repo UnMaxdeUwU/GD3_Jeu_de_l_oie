@@ -248,6 +248,7 @@ MonoBehaviour:
   AdvencedPlayer: 0
   BackPlayer: 3
   TeleportCase: 0
+  _player: {fileID: 983713531}
   effects: 1
 --- !u!1 &98874131
 GameObject:
@@ -1169,6 +1170,7 @@ GameObject:
   - component: {fileID: 611752475}
   - component: {fileID: 611752474}
   - component: {fileID: 611752473}
+  - component: {fileID: 611752476}
   m_Layer: 0
   m_Name: Plane (6)
   m_TagString: Untagged
@@ -1270,6 +1272,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611752471}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &611752476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611752471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e396c8d03d81424c8637a1810ca353b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TuileEffect
+  AdvencedPlayer: 0
+  BackPlayer: -2
+  TeleportCase: 0
+  _player: {fileID: 983713531}
+  effects: 1
 --- !u!1 &686721214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1802,7 @@ GameObject:
   - component: {fileID: 937166105}
   - component: {fileID: 937166104}
   - component: {fileID: 937166103}
+  - component: {fileID: 937166106}
   m_Layer: 0
   m_Name: Plane (4)
   m_TagString: Untagged
@@ -1884,6 +1904,23 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937166101}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &937166106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937166101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e396c8d03d81424c8637a1810ca353b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TuileEffect
+  AdvencedPlayer: 0
+  BackPlayer: -2
+  TeleportCase: 0
+  _player: {fileID: 983713531}
+  effects: 1
 --- !u!1 &983713530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,10 +1930,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983713535}
-  - component: {fileID: 983713534}
   - component: {fileID: 983713533}
   - component: {fileID: 983713532}
   - component: {fileID: 983713531}
+  - component: {fileID: 983713537}
+  - component: {fileID: 983713536}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1937,6 +1975,8 @@ MonoBehaviour:
   - {fileID: 1245653216}
   - {fileID: 215521212}
   - {fileID: 408670024}
+  _playerID: 0
+  board: {fileID: 0}
 --- !u!33 &983713532
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1994,33 +2034,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!50 &983713534
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983713530}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!4 &983713535
 Transform:
   m_ObjectHideFlags: 0
@@ -2036,6 +2049,54 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &983713536
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983713530}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &983713537
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983713530}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1159326305
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,10 +2223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e396c8d03d81424c8637a1810ca353b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tuile
-  AdvencedPlayer: 2
-  BackPlayer: 0
+  AdvencedPlayer: 0
+  BackPlayer: -2
   TeleportCase: 0
-  effects: 0
+  _player: {fileID: 983713531}
+  effects: 1
 --- !u!1 &1210484463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,8 +2612,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tuile
   AdvencedPlayer: 0
-  BackPlayer: 0
-  TeleportCase: 10
+  BackPlayer: -2
+  TeleportCase: 0
+  _player: {fileID: 983713531}
   effects: 2
 --- !u!1 &1429174007
 GameObject:
@@ -2788,8 +2851,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2000946156}
+  - component: {fileID: 2000946157}
   m_Layer: 0
-  m_Name: Tuile
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2831,6 +2895,39 @@ Transform:
   - {fileID: 543563622}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2000946157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000946155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f450070a9ab46f7a069fa4c6ee9c34d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sciript.Board
+  boards:
+  - {fileID: 2097456328}
+  - {fileID: 715651108}
+  - {fileID: 1429174007}
+  - {fileID: 1159326305}
+  - {fileID: 937166101}
+  - {fileID: 86989573}
+  - {fileID: 611752471}
+  - {fileID: 2021738177}
+  - {fileID: 1346129834}
+  - {fileID: 686721214}
+  - {fileID: 751940897}
+  - {fileID: 1271393657}
+  - {fileID: 98874131}
+  - {fileID: 909108510}
+  - {fileID: 2114123797}
+  - {fileID: 1513262069}
+  - {fileID: 1245653216}
+  - {fileID: 215521212}
+  - {fileID: 408670024}
+  - {fileID: 368454746}
 --- !u!1 &2021738177
 GameObject:
   m_ObjectHideFlags: 0
